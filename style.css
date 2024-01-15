@@ -14,6 +14,12 @@
     color: #fff;
 }
 
+body
+{
+    padding: 10px;
+    background-color: black;
+}
+
 .login-btns
 {
     width: 240px;
@@ -27,6 +33,7 @@
     min-width: 150px;
     width: 350px;
     background-color: #242424;
+    text-overflow: ellipsis;
 
     font-size: medium;
 }
@@ -64,11 +71,15 @@
     transition: all 0.1s ease;
 }
 
+.home
+{
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
 
-
-
-
-/* ---------------------------- */
 .home li img
 {
     width: 24px;
@@ -90,7 +101,7 @@ ul
 
 .library
 {
-    min-height: 75vh;
+    height: calc(100vh - 195px);
     
     position: relative;
 }
@@ -121,5 +132,67 @@ ul
 {
     color: #b3b3b3;
     text-decoration: none;
+
     font-size: 15px;
+}
+
+
+
+/* ........................ */
+
+.playlists .containeer .card
+{
+    box-sizing: content-box;
+    width: 150px;
+    height: 250px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    background-color: #171717;
+    cursor: pointer;
+
+    transition: all 0.3s ease-in;
+    position: relative;
+}
+
+.playlists .containeer .card:hover
+{
+    background-color: #262626;
+}
+
+.playlists .containeer .card #play
+{
+    width: 40px;
+    position: absolute;
+    bottom: 100px;
+    right: 20px;
+    opacity: 0;
+    transition: all 0.3s ease-in;
+}
+
+.playlists .containeer .card:hover #play
+{
+    transform: translateY(-15px);
+    opacity: 1;
+}
+
+
+.playlists .containeer .card img
+{
+    width: 150px;
+}
+
+.playlists .containeer
+{
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 30px 20px;    
+
+    height: 75vh;
+    overflow-y: scroll;
 }

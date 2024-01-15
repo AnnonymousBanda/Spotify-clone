@@ -1,8 +1,8 @@
 main
 {
-    width: 100vw;
-    height: 100vh;
-    background-color: #000;
+    width: calc(100vw - 20px);
+    height: calc(100vh - 20px);
+
     display: grid;
 
     grid-template-columns: minmax(250px, 340px) minmax(450px, auto);
@@ -14,7 +14,7 @@ main
     gap: 15px;
 }
 
-.nav img
+.nav img, .hamburger
 {
     display: none;
 }
@@ -58,6 +58,12 @@ main
         filter: invert(1);
     }
 
+    .hamburger
+    {
+        display: inline-block;
+        width: 50px;
+    }
+
     .panel
     {
         display: none;
@@ -72,5 +78,18 @@ main
     .playlist
     {
         grid-area: playlist;
+    }
+
+    .login-btns
+    {
+        display: none;
+    }
+
+    #search
+    {
+        width: calc(100vw - 150px);
+        max-width: 300px;
+
+        font-size: 14px;
     }
 }

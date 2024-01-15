@@ -3,11 +3,11 @@
   }
   
   ::-webkit-scrollbar-track {
-    background: #333; 
+    background: transparent;
   }
   
   ::-webkit-scrollbar-thumb {
-    background: #666; 
+    background: transparent;
   }
   
   ::-webkit-scrollbar-thumb:hover {
@@ -177,4 +177,16 @@
 .mb-s
 {
     margin-bottom: 10px;
+}
+
+
+/* .................... */
+.f-L
+{
+    font-size: 25px;
+}
+
+.f-s
+{
+    font-size: 15px;
 }
