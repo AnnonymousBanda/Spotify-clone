@@ -29,7 +29,7 @@ main
     grid-area: nav;
 }
 
-.playlist
+.playlists
 {
     grid-area: playlist;
 }
