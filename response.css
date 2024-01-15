@@ -1,0 +1,76 @@
+main
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    display: grid;
+
+    grid-template-columns: minmax(250px, 340px) minmax(450px, auto);
+    grid-template-rows: 80px auto;
+
+    grid-template-areas: "panel nav"
+               "panel playlist";
+
+    gap: 15px;
+}
+
+.nav img
+{
+    display: none;
+}
+
+.panel
+{
+    grid-area: panel;
+}
+
+.nav
+{
+    grid-area: nav;
+}
+
+.playlist
+{
+    grid-area: playlist;
+}
+
+@media only all and (max-width:730px) 
+{
+    main
+    {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+
+        grid-template-columns: auto;
+        grid-template-rows: 60px auto;
+
+        grid-template-areas: "nav nav"
+                             "playlist playlist";
+
+        gap: 0px;
+    }
+
+    .nav img
+    {
+        display: inline-block;
+        width: 30px;
+        filter: invert(1);
+    }
+
+    .panel
+    {
+        display: none;
+        position: fixed;
+    }
+
+    .nav
+    {
+        grid-area: nav;
+    }
+
+    .playlist
+    {
+        grid-area: playlist;
+    }
+}

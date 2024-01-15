@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify-clone</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./response.css">
+    <link rel="stylesheet" href="./utility-classes.css">
+</head>
+<body>
+    <main>
+        <div class="panel">
+            <div class="home bg-grey rounded-corners  pdl-s pdr-s pdt-s pdb-s mb-M">
+                <img src="./svgs/spotify-logo.svg" alt="spotify-logo" class="invert-color mb-M">
+                <ul>
+                    <li class="flex"><img src="./svgs/home-logo.svg" alt="home" class="invert-color">Home</li>
+                    <li class="flex"><img src="./svgs/search-logo.svg" alt="search" class="invert-color">Search</li>
+                </ul>
+            </div>
+            <div class="library bg-grey rounded-corners pdl-s pdr-s pdt-s pdb-s mb-M">
+                <div class="header bg-grey">
+                    <img src="./svgs/library-logo.svg" class="invert-color">Your Library
+                </div>
+                <div class="body">
+
+                </div>    
+                <footer class="bg-grey">
+                    <div>
+                        <a href="https://www.spotify.com/in-en/legal/"><span>Legal</span></a>
+                    </div>
+                    <div>
+                        <a href="https://www.spotify.com/in-en/privacy/"><span>Privacy Center</span></a>
+                    </div>
+                    <div>
+                        <a href="https://www.spotify.com/in-en/legal/privacy-policy/"><span>Privacy Policy</span></a>
+                    </div>
+                    <div>
+                        <a href="https://www.spotify.com/in-en/legal/cookies-policy/"><span>Cookies</span></a>
+                    </div>
+                    <div>
+                        <a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3"><span>About Ads</span></a>
+                    </div>
+                    <div>
+                        <a href="https://www.spotify.com/in-en/accessibility/"><span>Accessibility</span></a>
+                    </div>
+                </footer>                
+            </div>
+        </div>
+
+        <nav class="nav flex-combo bg-black">
+            <img src="./svgs/spotify-logo-small.svg" alt="spotify-logo" class="ml-s">
+            <input type="search" id="search" name="search" placeholder="What do you want to listen to?" class="semi-corners pdt-M pdb-M pdl-L pdr-L ml-M"> 
+            <div class="login-btns bg-black ml-M mr-M">
+                <button class="bg-trans semi-corners btn1">Sign up</button>
+                <button class="bg-white semi-corners btn2">Log in</button>
+            </div>
+        </nav>
+
+        <div class="playlist">
+
+        </div>
+    </main>
+</body>
+</html>
