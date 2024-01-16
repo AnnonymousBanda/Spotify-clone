@@ -11,7 +11,7 @@ main
     display: grid;
 
     grid-template-columns: minmax(250px, 340px) minmax(450px, auto);
-    grid-template-rows: 80px calc(100% - 160px - 3 * 15px) 80px;
+    grid-template-rows: 80px calc(100% - 80px - 80px - 3 * 15px) 80px;
 
     grid-template-areas: "panel nav"
                          "panel playlist"
@@ -60,11 +60,11 @@ main
         display: grid;
 
         grid-template-columns: auto;
-        grid-template-rows: 60px calc(100% - 60px - 60px - 3 * 10px) 60px;
+        grid-template-rows: 60px calc(100% - 60px - 80px - 3 * 10px) 80px;
 
-        grid-template-areas: "nav nav"
-                             "playlist playlist"
-                             "playback playback";
+        grid-template-areas: "nav"
+                             "playlist"
+                             "playback";
 
         row-gap: 10px;
     }

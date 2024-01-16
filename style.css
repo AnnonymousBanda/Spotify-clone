@@ -200,31 +200,7 @@ ul
     overflow-y: scroll;
 }
 
-/* .containeer
-{
-    display: grid;
-    gap: 30px 20px;
-
-    grid-template-columns: repeat(4,calc(( 100% - 3 * 20px ) / 4));
-}
-
-.playlists
-{
-    overflow-y: scroll;
-} */
-
-
-.playback .controller > img
-{
-    width: 20px;
-    cursor: pointer;
-}
-
-.playback .controller .btn img
-{
-    width: 30px;
-    cursor: pointer;
-}
+/* ................................. */
 
 .playback
 {
@@ -235,44 +211,69 @@ ul
     justify-content: center;
 }
 
-.controller
+.music-state
 {
-    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+
+    width: 90%;
 }
 
-#progress
+.music-state p
 {
-    min-width: 280px;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.progress-bar
+{    
+    min-width: 200px;
     width: calc(100% - 300px);
     height: 3px;
-    border-radius: 2.5px;
+    border-radius: 1.5px;
     background-color: #545454;
     cursor: pointer;
     transition: all 0.3s ease;
 
     display: flex;
     align-items: center;
+    
+    position: relative;
 }
 
-#pointer
-{
-    width: 15px;
-    height: 15px;
-    border-radius: 100%;
-    background-color: #1DB954;
-    transition: all 0.3s ease;
-    opacity: 0;
-}
-
-#progress:hover
+.progress-bar:hover
 {
     background-color: #fff;
 }
 
-#progress:hover #pointer
+.progress
+{
+    height: 3px;
+    border-radius: 1.5px;
+    background-color: gray;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 10px;
+    transition: all 1s linear;
+}
+
+.pointer
+{
+    width: 20px;
+    height: 20px;
+    background-color: #1DB954;
+    border-radius: 100%;
+    transform: translate(-10px);
+    transition: transform 1s linear;
+
+    opacity: 0;
+}
+
+.progress-bar:hover .pointer
 {
     opacity: 1;
 }

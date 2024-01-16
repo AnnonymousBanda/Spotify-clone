@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <nav class="nav flex-combo bg-black">
+        <nav class="nav flex-combo bg-black rounded-corners">
             <img src="./svgs/spotify-logo-small.svg" alt="spotify-logo" class="ml-s">
             <input type="search" id="search" name="search" placeholder="What do you want to listen to?" class="semi-corners pdt-M pdb-M pdl-L pdr-L ml-M mr-M"> 
             <div class="login-btns bg-black ml-M mr-M">
@@ -124,21 +124,25 @@
             </div>
         </div>
 
-        <div class="playback bg-black">            
-            <div id="progress"> 
-                <div id="pointer"></div>               
-            </div>
-            <div class="controller">
-                
-                <img src="./svgs/playback/repeat.svg" alt="repeat" class="invert-color">
-                <div class="btn">
-                    <img src="./svgs/playback/next-prev.svg" alt="prev" class="invert-color rotate-180 mr-M">
-                    <img src="./svgs/playback/pause.svg" alt="pause" class="invert-color">
-                    <img src="./svgs/playback/next-prev.svg" alt="prev" class="invert-color ml-M">
+        <div class="playback bg-black rounded-corners">   
+            
+            <div class="music-state">
+                <p class="currentTime mr-M">00:00</p>
+                <div class="progress-bar cursor">
+                    <div class="progress"></div>
+                    <div class="pointer"></div>
                 </div>
-                <img src="./svgs/playback/volume.svg" alt="volume" class="invert-color">
+                <p class="totalDuration ml-M">00:00</p>
+            </div>
+            
+            <div class="playback-controls">
+                <img src="./playback/next-prev.svg" alt="prev" class="prev rotate-180 resize invert-color mr-M cursor">
+                <img src="./playback/play.svg" alt="play-pause" class="play-pause resize invert-color cursor">
+                <img src="./playback/next-prev.svg" alt="next" class="next resize invert-color ml-M cursor">
             </div>
         </div>
     </main>
+
+    <script src="./index.js"></script>
 </body>
 </html>

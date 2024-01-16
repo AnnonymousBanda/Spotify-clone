@@ -195,3 +195,13 @@
 {
     font-size: 1.5rem;
 }
+
+.resize
+{
+    width: 30px;
+}
+
+.cursor
+{
+    cursor: pointer;
+}
