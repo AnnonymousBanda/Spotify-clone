@@ -42,6 +42,11 @@
     filter: invert(1);
 }
 
+.rotate-180
+{
+    transform: rotate(180deg);
+}
+
 .semi-corners
 {
     border-radius: 50rem;

@@ -212,3 +212,67 @@ ul
 {
     overflow-y: scroll;
 } */
+
+
+.playback .controller > img
+{
+    width: 20px;
+    cursor: pointer;
+}
+
+.playback .controller .btn img
+{
+    width: 30px;
+    cursor: pointer;
+}
+
+.playback
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.controller
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#progress
+{
+    min-width: 280px;
+    width: calc(100% - 300px);
+    height: 3px;
+    border-radius: 2.5px;
+    background-color: #545454;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    display: flex;
+    align-items: center;
+}
+
+#pointer
+{
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    background-color: #1DB954;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+#progress:hover
+{
+    background-color: #fff;
+}
+
+#progress:hover #pointer
+{
+    opacity: 1;
+}
