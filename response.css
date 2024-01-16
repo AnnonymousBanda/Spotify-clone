@@ -1,3 +1,8 @@
+html
+{
+    font-size: 62.5%;
+}
+
 main
 {
     width: calc(100vw - 20px);
@@ -6,10 +11,11 @@ main
     display: grid;
 
     grid-template-columns: minmax(250px, 340px) minmax(450px, auto);
-    grid-template-rows: 80px auto;
+    grid-template-rows: 80px calc(100% - 160px - 3 * 15px) 80px;
 
     grid-template-areas: "panel nav"
-               "panel playlist";
+                         "panel playlist"
+                         "panel playback";
 
     gap: 15px;
 }
@@ -32,23 +38,35 @@ main
 .playlists
 {
     grid-area: playlist;
+    height: 100%;
+}
+
+.playback
+{
+    grid-area: playback;
 }
 
 @media only all and (max-width:730px) 
 {
+    body
+    {
+        padding: 0;
+    }
+
     main
     {
-        width: 100vw;
-        height: 100vh;
+        width: 100svw;
+        height: 100svh;
         display: grid;
 
         grid-template-columns: auto;
-        grid-template-rows: 60px auto;
+        grid-template-rows: 60px calc(100% - 60px - 60px - 3 * 10px) 60px;
 
         grid-template-areas: "nav nav"
-                             "playlist playlist";
+                             "playlist playlist"
+                             "playback playback";
 
-        gap: 0px;
+        row-gap: 10px;
     }
 
     .nav img
@@ -80,6 +98,11 @@ main
         grid-area: playlist;
     }
 
+    .playback
+    {
+        grid-area: playback;
+    }
+
     .login-btns
     {
         display: none;
@@ -88,8 +111,8 @@ main
     #search
     {
         width: calc(100vw - 150px);
-        max-width: 300px;
+        max-width: 280px;
 
-        font-size: 14px;
+        font-size: 1.25rem;
     }
 }

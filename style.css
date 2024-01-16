@@ -35,7 +35,7 @@ body
     background-color: #242424;
     text-overflow: ellipsis;
 
-    font-size: medium;
+    font-size: 1.6rem;
 }
 
 #search:hover
@@ -56,7 +56,7 @@ body
     font-weight: 400;
     cursor: pointer;
 
-    font-size: large;
+    font-size: 2rem;
 }
 
 .btn1:hover
@@ -97,13 +97,16 @@ ul
     display: flex;
     flex-direction: column;
     gap: 20px;
+    
+    font-size: 1.6rem;
 }
 
 .library
 {
-    height: calc(100vh - 195px);
-    
+    height: calc(100vh - 195px);    
     position: relative;
+    
+    font-size: 1.6rem;
 }
 
 .library .header
@@ -133,7 +136,7 @@ ul
     color: #b3b3b3;
     text-decoration: none;
 
-    font-size: 15px;
+    font-size: 1.5rem;
 }
 
 
@@ -193,6 +196,19 @@ ul
 
     gap: 30px 20px;    
 
-    height: 75vh;
+    height: calc(100%);
     overflow-y: scroll;
 }
+
+/* .containeer
+{
+    display: grid;
+    gap: 30px 20px;
+
+    grid-template-columns: repeat(4,calc(( 100% - 3 * 20px ) / 4));
+}
+
+.playlists
+{
+    overflow-y: scroll;
+} */
