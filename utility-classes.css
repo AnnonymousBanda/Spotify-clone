@@ -196,9 +196,14 @@
     font-size: 1.5rem;
 }
 
-.resize
+.resize-M
 {
-    width: 30px;
+    width: 3rem;
+}
+
+.resize-s
+{
+    width: 2rem;
 }
 
 .cursor

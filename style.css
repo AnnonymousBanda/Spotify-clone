@@ -206,9 +206,8 @@ ul
 {
     display: flex;
     flex-direction: column;
-    gap: 20px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .music-state
@@ -229,7 +228,8 @@ ul
 .progress-bar
 {    
     min-width: 200px;
-    width: calc(100% - 300px);
+    max-width: 700px;
+    width: calc(100% - 100px);
     height: 3px;
     border-radius: 1.5px;
     background-color: #545454;
@@ -258,16 +258,17 @@ ul
     left: 0;
 
     width: 0px;
-    transition: all 1s linear;
+    transition: width 1s linear;
 }
 
 .pointer
 {
-    width: 20px;
-    height: 20px;
+    width: 12px;
+    height: 12px;
     background-color: #1DB954;
     border-radius: 100%;
     transform: translate(-10px);
+    
     transition: transform 1s linear;
 
     opacity: 0;
@@ -276,4 +277,18 @@ ul
 .progress-bar:hover .pointer
 {
     opacity: 1;
+}
+
+.progress-bar:hover .progress
+{
+    background-color: #1DB954;
+}
+
+.controlers
+{
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
