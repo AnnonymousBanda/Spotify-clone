@@ -1,117 +1,119 @@
-const musicPath=["./songs/Mumbai Indians Anthem.mp3",
-                "./songs/JUNGLE HAI AADHI RAAT X GRIND.mp3",
-                "./songs/Bye Pewdiepie Carryminati.mp3"];
+const replay_btn=$(".replay-btn")
+const play_pause_btn=$(".play-pause")
+const next_btn=$(".next")
+const prev_btn=$(".prev")
+const volume_btn=$(".volume-btn")
+const progress=$(".progress")
+const progress_bar=$(".progress-bar")
+const pointer=$(".pointer")
 
-let musicNumber=0;
-let music = new Audio(musicPath[0]);
-let intervalId;
+const shuffle_play_btn=$(".shuffle-play>#play")
 
-music.addEventListener("ended",()=>{
-  clearInterval(intervalId);
-  play_pause_btn.setAttribute("src", "./playback/play.svg")
-});
+let songs=[ "./songs/Bye Pewdiepie Carryminati.mp3",
+            "./songs/JUNGLE HAI AADHI RAAT X GRIND.mp3",
+            "./songs/Mumbai Indians Anthem.mp3",
+            "./songs/Aankhon Mein Teri Lofi Remix.mp3",
+            "./songs/ANIMAL SATRANGA.mp3",
+            "./songs/TU HAI KAHAN.mp3",
+            "./songs/Mockingbird.mp3",
+            "./songs/PEHLE BHI MAIN.mp3",
+            "./songs/Suzonn - Farq hai.mp3",
+            "./songs/Tere Bin.mp3",
+            "./songs/The Breakup Song.mp3",
+            "./songs/Until I Found You.mp3",
+            "./songs/Ye Mausam Ki Baarish.mp3"]
+songs.sort(() => Math.random() - 0.5)
 
-const play_pause_btn=document.querySelector(".play-pause");
-play_pause_btn.addEventListener("click", play_pause=function () {
-    
-    if (music.paused) {
-        play_pause_btn.setAttribute("src", "./playback/pause.svg")
-        music.play();     
-        
-        intervalId = setInterval(progress, 500);
-    } 
-    else {
-        play_pause_btn.setAttribute("src", "./playback/play.svg")
-        music.pause();
 
-        clearInterval(intervalId);
+function getSongName(path){
+  let a=path.lastIndexOf("/")
+  let b=path.lastIndexOf(".")
+  return path.slice(a+1,b)
+}
+
+//Global variables
+let songNumber=0
+let audio=new Audio(songs[songNumber])
+
+//Global functions
+function volume(state){
+  if(typeof state==='boolean')  audio.muted=state
+  else audio.muted=!audio.muted
+
+  let path=["./playback/mute.svg","./playback/volume.svg"]
+  volume_btn.attr("src",path[Number(!audio.muted)])
+}
+
+function play_pause(state){
+  if(typeof state==='boolean'){
+    if(state) audio.play()
+    else  audio.pause()
+  }
+  else{
+    if(audio.paused){
+      audio.play()
     }
+    else  audio.pause()
+  }
+  let path=["./playback/pause.svg","./playback/play.svg"]
+  play_pause_btn.attr("src",path[Number(audio.paused)])
+}
+
+function songPlaybackControl(element){
+  songNumber=songNumber+Number(element.attr("data-songIncrement"))
+  songNumber%=songs.length;
+  songNumber=(songNumber===-1)?songs.length-1:songNumber
+
+  audio.pause()
+  clearInterval(id)
+  audio.src=songs[songNumber]
+  play_pause(true)
+}
+
+//Adding EventListeners
+volume_btn.click(volume)
+play_pause_btn.click(play_pause)
+replay_btn.click(()=>songPlaybackControl(replay_btn))
+prev_btn.click(()=>songPlaybackControl(prev_btn))
+next_btn.click(()=>songPlaybackControl(next_btn))
+
+shuffle_play_btn.click(()=>{
+  play_pause()
+})
+
+
+
+//Continous status updating
+let id;
+$(audio).on('canplay', function(){
+  updateStatus()
+});
+$(audio).on('pause', function(){
+  clearInterval(id)
+});
+$(audio).on('play', function(){
+  id=setInterval(updateStatus,500)
+});
+$(audio).on('ended', function(){
+  clearInterval(id)
+  songPlaybackControl(next_btn)
 });
 
-document.querySelector(".replay-btn").addEventListener("click",()=>{
-  
-  document.querySelector(".progress").style.width = 0 +"px";
-  document.querySelector(".pointer").style.transform = `translateX(0px)`;
+function updateStatus(){
+  let timeElapsed=((progress_bar.width())/audio.duration)*audio.currentTime;
+  progress.width(timeElapsed)
+  pointer.css('transform', `translate(${timeElapsed-4.5}px, 0)`)
 
-  music.pause();
-  clearInterval(intervalId);    
+  let currentTime=formatTime(parseInt(parseInt(audio.currentTime)/60),parseInt(parseInt(audio.currentTime))%60)
+  let totalDuration=formatTime(parseInt(parseInt(audio.duration)/60),parseInt(parseInt(audio.duration))%60)
+  $(".currentTime").text(currentTime)
+  $(".totalDuration").text(totalDuration)
 
-  play_pause_btn.setAttribute("src", "./playback/pause.svg");
+  $(".now-playing h2").text(getSongName(songs[songNumber]))
+}
 
-  music=new Audio(musicPath[musicNumber]);
-  
-  intervalId = setInterval(progress, 500);
+function formatTime(min,sec){
+  let formatNumber=(x)=> (parseInt(x/10))===0?"0"+x:""+x
 
-  music.play();
-});
-
-const volumne_btn=document.querySelector(".volume-btn").addEventListener("click",function () {
-    music.muted=!music.muted
-    let path=["./playback/volume.svg","./playback/mute.svg"];    
-    document.querySelector(".volume-btn").setAttribute("src",path[(music.muted)+0]);
-});
-
-const prev=document.querySelector(".prev");
-const next=document.querySelector(".next");
-
-next.addEventListener("click", ()=>{  
-  document.querySelector(".progress").style.width = 0 +"px";
-  document.querySelector(".pointer").style.transform = `translateX(-6px)`;
-
-  music.pause();
-  
-  clearInterval(intervalId);  
-
-  play_pause_btn.setAttribute("src", "./playback/pause.svg");
-  musicNumber=(musicNumber+1)%musicPath.length;
-
-  intervalId = setInterval(progress, 500);
-  
-  music=new Audio(musicPath[musicNumber]);
-  music.play();
-});
-
-prev.addEventListener("click", ()=>{
-  document.querySelector(".progress").style.width = 0 +"px";
-  document.querySelector(".pointer").style.transform = `translateX(-6px)`;
-
-  music.pause();
-
-  clearInterval(intervalId);  
-
-  play_pause_btn.setAttribute("src", "./playback/pause.svg");
-  musicNumber=(musicNumber-1)===-1?musicPath.length-1:musicNumber-1;
-  music=new Audio(musicPath[musicNumber]);
-
-  intervalId = setInterval(progress, 500);
-
-  music.play();
-});
-
-
-const duration=()=>{
-  return music.duration};
-
-const currentTime=()=>{
-    return music.currentTime};
-
-const progress=function() {
-  let totalDuration=duration();
-  let movement=(parseFloat(document.querySelector(".progress-bar").offsetWidth)/Math.ceil(totalDuration))*Math.ceil(currentTime());
-
-  document.querySelector(".progress").style.width = movement - 6 +"px";
-  document.querySelector(".pointer").style.transform = `translateX(${movement-10}px)`;
-  // console.log("Here");
-
-  let a=Math.floor(duration()/60);
-  a=Math.floor(a/10)===0?"0"+a:a;
-  let b=Math.floor(duration()%60);
-  b=Math.floor(b/10)===0?"0"+b:b;
-  document.querySelector(".totalDuration").textContent=a+":"+b;
-
-  a=Math.floor(currentTime()/60);
-  a=Math.floor(a/10)===0?"0"+a:a;
-  b=Math.floor(currentTime()%60);
-  b=Math.floor(b/10)===0?"0"+b:b;
-  document.querySelector(".currentTime").textContent=a+":"+b;
+  return formatNumber(min)+":"+formatNumber(sec)
 }

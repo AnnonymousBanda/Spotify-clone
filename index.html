@@ -15,13 +15,16 @@
             <div class="home bg-grey rounded-corners  pdl-s pdr-s pdt-s pdb-s mb-M">
                 <img src="./svgs/spotify-logo.svg" alt="spotify-logo" class="invert-color mb-M">
                 <ul>
-                    <li class="flex"><img src="./svgs/home-logo.svg" alt="home" class="invert-color">Home</li>
-                    <li class="flex"><img src="./svgs/search-logo.svg" alt="search" class="invert-color">Search</li>
+                    <li class="flex"><a href="./index.html" class="flex-combo-II"><img src="./svgs/home-logo.svg" alt="home" class="invert-color mr-s">Home</a></li>
+                    <li class="flex"><a href="#" class="flex-combo-II"><img src="./svgs/search-logo.svg" alt="search" class="invert-color mr-s">Search</a></li>
                 </ul>
             </div>
             <div class="library bg-grey rounded-corners pdl-s pdr-s pdt-s pdb-s">
-                <div class="header bg-grey">
-                    <img src="./svgs/library-logo.svg" class="invert-color">Your Library
+                <div class="now-playing bg-grey mb-M mt-M ml-M mr-M pdb-M pdt-M pdl-M pdr-M rounded-corners">
+                    <div class="flex-combo-II">
+                        <img src="./svgs/now-playing.svg" class="invert-color" alt="now-playing">Now Playing
+                    </div>
+                    <h2></h2>
                 </div>
                 <div class="body">
 
@@ -60,7 +63,7 @@
         </nav>
 
         <div class="playlists">            
-            <div class="containeer ">
+            <!-- <div class="containeer ">
                 <div class="card pdb-M pdt-M pdl-M pdr-M rounded-corners">
                     <img src="./svgs/play-logo.svg" id="play">
                     <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" class="rounded-corners">
@@ -121,10 +124,19 @@
                     <h3 class="f-L">Happy Hits!</h3>
                     <p class="f-s">Hits to boost your mood and fill you with happiness!</p>
                 </div>
-            </div>
+            </div> -->
+            <div class="containeer pdb-M pdt-M pdl-M pdr-M">
+                <div class="card shuffle-play pdb-M pdt-M pdl-M pdr-M rounded-corners">
+                    <img src="./svgs/play-logo.svg" id="play">
+                    <img src="./thumbnails/shuffle-play.svg" class="rounded-corners">
+                    <h3 class="f-L">Shuffle&Play</h3>
+                    <p class="f-s">Instantly shuffle with our Shuffle Play feature</p>
+                </div>
         </div>
 
-        <div class="playback ">   
+        </div>
+
+        <div class="playback ">
             
             <div class="music-state">
                 <p class="currentTime mr-M">00:00</p>
@@ -135,17 +147,18 @@
                 <p class="totalDuration ml-M">00:00</p>
             </div>
             <div class="controlers">
-                <img class="replay-btn invert-color cursor resize-s" src="./playback/repeat.svg" alt="replay">
+                <img class="replay-btn invert-color cursor resize-s" data-songIncrement="0" src="./playback/repeat.svg" alt="replay">
                 <div class="playback-controls">
-                    <img src="./playback/next-prev.svg" alt="prev" class="prev rotate-180 resize-M invert-color mr-M cursor">
+                    <img src="./playback/next-prev.svg" alt="prev" data-songIncrement="-1" class="prev rotate-180 resize-M invert-color mr-M cursor">
                     <img src="./playback/play.svg" alt="play-pause" class="play-pause resize-M invert-color cursor">
-                    <img src="./playback/next-prev.svg" alt="next" class="next resize-M invert-color ml-M cursor">
+                    <img src="./playback/next-prev.svg" alt="next" data-songIncrement="1" class="next resize-M invert-color ml-M cursor">
                 </div>
                 <img class="volume-btn invert-color cursor resize-M" src="./playback/volume.svg" alt="replay">
             </div>
         </div>
     </main>
-
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="./index.js"></script>
 </body>
 </html>
