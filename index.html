@@ -15,8 +15,8 @@
             <div class="home bg-grey rounded-corners  pdl-s pdr-s pdt-s pdb-s mb-M">
                 <img src="./svgs/spotify-logo.svg" alt="spotify-logo" class="invert-color mb-M">
                 <ul>
-                    <li class="flex"><a href="./index.html" class="flex-combo-II"><img src="./svgs/home-logo.svg" alt="home" class="invert-color mr-s">Home</a></li>
-                    <li class="flex"><a href="#" class="flex-combo-II"><img src="./svgs/search-logo.svg" alt="search" class="invert-color mr-s">Search</a></li>
+                    <li class="flex"><a href="./index.html" id="home-nav-btn" class="flex-combo-II"><img src="./svgs/home-logo.svg" alt="home" class="invert-color mr-s">Home</a></li>
+                    <li class="flex"><a href="#" id="search-nav-btn" class="flex-combo-II"><img src="./svgs/search-logo.svg" alt="search" class="invert-color mr-s">Search</a></li>
                 </ul>
             </div>
             <div class="library bg-grey rounded-corners pdl-s pdr-s pdt-s pdb-s">
@@ -52,91 +52,46 @@
             </div>
         </div>
 
-        <nav class="nav flex-combo bg-black rounded-corners">
+        <nav class="nav flex-combo bg-black">
             <img src="./svgs/spotify-logo-small.svg" alt="spotify-logo" class="ml-s">
-            <input type="search" id="search" name="search" placeholder="What do you want to listen to?" class="semi-corners pdt-M pdb-M pdl-L pdr-L ml-M mr-M"> 
+            <input type="search" spellcheck="false" id="search" name="search" placeholder="What do you want to listen to?" class="semi-corners pdt-M pdb-M pdl-L pdr-L ml-M mr-M" list="searchList"> 
+            <datalist id="searchList">
+            </datalist>
             <div class="login-btns bg-black ml-M mr-M">
                 <button class="bg-trans semi-corners btn1">Sign up</button>
                 <button class="bg-white semi-corners btn2">Log in</button>
             </div>
             <img class="hamburger mr-M invert-color" src="./svgs/menu.svg" alt="menu">
+            <div class="menu-bar bg-grey">                
+                <img src="./svgs/cross.svg" alt="exit" class="cross invert-color resize-s cursor">
+                <div class="home">
+                    <img src="./svgs/spotify-logo.svg" alt="spotify-logo" class="invert-color mb-M">
+                    <ul>
+                        <li class="flex"><a href="./index.html" id="home-nav-btn" class="flex-combo-II"><img src="./svgs/home-logo.svg" alt="home" class="invert-color mr-s">Home</a></li>
+                        <li class="flex"><a href="#" id="search-nav-btn" class="flex-combo-II"><img src="./svgs/search-logo.svg" alt="search" class="invert-color mr-s">Search</a></li>
+                    </ul>
+                </div>
+                <div class="now-playing bg-grey mb-M mt-M ml-M mr-M pdb-M pdt-M pdl-M pdr-M rounded-corners">
+                    <div class="flex-combo-II">
+                        <img src="./svgs/now-playing.svg" class="invert-color" alt="now-playing">Now Playing
+                    </div>
+                    <h2></h2>
+                </div>
+            </div>
         </nav>
 
-        <div class="playlists">            
-            <!-- <div class="containeer ">
-                <div class="card pdb-M pdt-M pdl-M pdr-M rounded-corners">
-                    <img src="./svgs/play-logo.svg" id="play">
-                    <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" class="rounded-corners">
-                    <h3 class="f-L">Happy Hits!</h3>
-                    <p class="f-s">Hits to boost your mood and fill you with happiness!</p>
-                </div>
-                <div class="card pdb-M pdt-M pdl-M pdr-M rounded-corners">
-                    <img src="./svgs/play-logo.svg" id="play">
-                    <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" class="rounded-corners">
-                    <h3 class="f-L">Happy Hits!</h3>
-                    <p class="f-s">Hits to boost your mood and fill you with happiness!</p>
-                </div>
-                <div class="card pdb-M pdt-M pdl-M pdr-M rounded-corners">
-                    <img src="./svgs/play-logo.svg" id="play">
-                    <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" class="rounded-corners">
-                    <h3 class="f-L">Happy Hits!</h3>
-                    <p class="f-s">Hits to boost your mood and fill you with happiness!</p>
-                </div>
-                <div class="card pdb-M pdt-M pdl-M pdr-M rounded-corners">
-                    <img src="./svgs/play-logo.svg" id="play">
-                    <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" class="rounded-corners">
-                    <h3 class="f-L">Happy Hits!</h3>
-                    <p class="f-s">Hits to boost your mood and fill you with happiness!</p>
-                </div>
-                <div class="card pdb-M pdt-M pdl-M pdr-M rounded-corners">
-                    <img src="./svgs/play-logo.svg" id="play">
-                    <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" class="rounded-corners">
-                    <h3 class="f-L">Happy Hits!</h3>
-                    <p class="f-s">Hits to boost your mood and fill you with happiness!</p>
-                </div>
-                <div class="card pdb-M pdt-M pdl-M pdr-M rounded-corners">
-                    <img src="./svgs/play-logo.svg" id="play">
-                    <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" class="rounded-corners">
-                    <h3 class="f-L">Happy Hits!</h3>
-                    <p class="f-s">Hits to boost your mood and fill you with happiness!</p>
-                </div>
-                <div class="card pdb-M pdt-M pdl-M pdr-M rounded-corners">
-                    <img src="./svgs/play-logo.svg" id="play">
-                    <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" class="rounded-corners">
-                    <h3 class="f-L">Happy Hits!</h3>
-                    <p class="f-s">Hits to boost your mood and fill you with happiness!</p>
-                </div>
-                <div class="card pdb-M pdt-M pdl-M pdr-M rounded-corners">
-                    <img src="./svgs/play-logo.svg" id="play">
-                    <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" class="rounded-corners">
-                    <h3 class="f-L">Happy Hits!</h3>
-                    <p class="f-s">Hits to boost your mood and fill you with happiness!</p>
-                </div>
-                <div class="card pdb-M pdt-M pdl-M pdr-M rounded-corners">
-                    <img src="./svgs/play-logo.svg" id="play">
-                    <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" class="rounded-corners">
-                    <h3 class="f-L">Happy Hits!</h3>
-                    <p class="f-s">Hits to boost your mood and fill you with happiness!</p>
-                </div>
-                <div class="card pdb-M pdt-M pdl-M pdr-M rounded-corners">
-                    <img src="./svgs/play-logo.svg" id="play">
-                    <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" class="rounded-corners">
-                    <h3 class="f-L">Happy Hits!</h3>
-                    <p class="f-s">Hits to boost your mood and fill you with happiness!</p>
-                </div>
-            </div> -->
-            <div class="containeer pdb-M pdt-M pdl-M pdr-M">
+        <div class="playlists"> 
+           <div class="containeer pdb-M pdt-M pdl-M pdr-M">
                 <div class="card shuffle-play pdb-M pdt-M pdl-M pdr-M rounded-corners">
                     <img src="./svgs/play-logo.svg" id="play">
                     <img src="./thumbnails/shuffle-play.svg" class="rounded-corners">
                     <h3 class="f-L">Shuffle&Play</h3>
                     <p class="f-s">Instantly shuffle with our Shuffle Play feature</p>
                 </div>
+            </div>
         </div>
 
-        </div>
-
-        <div class="playback ">
+        <div class="playback bg-black">
             
             <div class="music-state">
                 <p class="currentTime mr-M">00:00</p>

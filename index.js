@@ -30,6 +30,20 @@ function getSongName(path){
   let b=path.lastIndexOf(".")
   return path.slice(a+1,b)
 }
+songs.forEach(function(song){
+    let option = $('<option>', { value: getSongName(song) })
+    $('#searchList').append(option)
+});
+$("input").on('keyup', function(event) {
+  if (event.key === 'Enter'){
+    let songNum=songs.map((x)=>getSongName(x)).indexOf(this.value)
+    if (songNum!==-1) songPlaybackControl(null,songNum)
+    this.value=""
+  }
+});
+$('#search-nav-btn').on('click', ()=>{
+  $('input').focus()
+});
 
 //Global variables
 let songNumber=0
@@ -59,10 +73,13 @@ function play_pause(state){
   play_pause_btn.attr("src",path[Number(audio.paused)])
 }
 
-function songPlaybackControl(element){
-  songNumber=songNumber+Number(element.attr("data-songIncrement"))
-  songNumber%=songs.length;
-  songNumber=(songNumber===-1)?songs.length-1:songNumber
+function songPlaybackControl(element,songNum){
+  if(typeof songNum==='number') songNumber=songNum
+  else{
+    songNumber=songNumber+Number(element.attr("data-songIncrement"))
+    songNumber%=songs.length;
+    songNumber=(songNumber===-1)?songs.length-1:songNumber
+    }
 
   audio.pause()
   clearInterval(id)
@@ -80,8 +97,10 @@ next_btn.click(()=>songPlaybackControl(next_btn))
 shuffle_play_btn.click(()=>{
   play_pause()
 })
-
-
+progress_bar.click(function(event){
+  let xPosition = event.pageX - progress_bar.offset().left;
+  audio.currentTime=(audio.duration/progress_bar.width())*xPosition;
+})
 
 //Continous status updating
 let id;
@@ -117,3 +136,8 @@ function formatTime(min,sec){
 
   return formatNumber(min)+":"+formatNumber(sec)
 }
+
+// Responsive
+$(".hamburger").on("click", () => $(".menu-bar").animate({ width:"100vw",opacity:1}))
+// $("#search-nav-btn").on("click", () => $(".menu-bar").animate({ width:"0",opacity:0}))
+$(".cross").on("click", () => $(".menu-bar").animate({ width:"0",opacity:0}))
